@@ -1,0 +1,47 @@
+### Get all stock items
+GET http://localhost:8080/stock
+Accept: application/json
+
+
+### Add a new stock items
+< {%
+    request.variables.set("stockItems", [
+        {"name": "macbook", "description": "2024 model", quantity: 10, unit: "pcs", pricePerUnit: 2500},
+        {"name": "iphone", "description": "2024 model", quantity: 20, unit: "pcs", pricePerUnit: 1500},
+        {"name": "ipad", "description": "2024 model", quantity: 30, unit: "pcs", pricePerUnit: 1000}
+    ])
+ %}
+POST http://localhost:8080/add-stock
+Content-Type: application/json
+
+{
+  "name": "{{$.stockItems..name}}",
+  "description": "{{$.stockItems..description}}",
+  "quantity": {{$.stockItems..quantity}},
+  "unit": "{{$.stockItems..unit}}",
+  "pricePerUnit": {{$.stockItems..pricePerUnit}}
+}
+
+
+### Get a stock item by ID
+< {%
+    request.variables.set("itemIDs", [1, 2, 3])
+%}
+GET http://localhost:8080/stock/{{$.itemIDs}}
+Accept: application/json
+
+
+### Update a stock item
+PUT http://localhost:8080/stock/1
+Content-Type: application/json
+
+{
+  "description": "2025 model",
+  "quantity": 20,
+  "pricePerUnit": 3000
+}
+
+
+### Delete a stock item
+DELETE http://localhost:8080/stock/1
+Accept: application/json
