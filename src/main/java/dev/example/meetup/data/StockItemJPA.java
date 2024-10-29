@@ -4,11 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.annotation.LastModifiedDate;
-
-import java.time.LocalDateTime;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
@@ -18,31 +13,59 @@ public class StockItemJPA {
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "stock_item_seq_gen")
     @SequenceGenerator(name = "stock_item_seq_gen", sequenceName = "stock_item_seq", allocationSize = 1)
-    @Getter
     private Long id;
 
-    @Getter
-    @Setter
     private String name;
 
-    @Getter
-    @Setter
     private String description;
 
-    @Getter
-    @Setter
     private Integer quantity;
 
-    @Getter
-    @Setter
     private String unit;
 
-    @Getter
-    @Setter
     private Double pricePerUnit;
 
-    @Getter
-    @Setter
-    @LastModifiedDate
-    private LocalDateTime lastUpdated;
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public Double getPricePerUnit() {
+        return pricePerUnit;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public void setPricePerUnit(Double pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
+    }
 }

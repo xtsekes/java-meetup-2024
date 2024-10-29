@@ -39,7 +39,6 @@ public class StockManagerService {
                     stockItemJPA.setDescription(stockItemDTO.description());
                     stockItemJPA.setQuantity(stockItemDTO.quantity());
                     stockItemJPA.setPricePerUnit(stockItemDTO.pricePerUnit());
-                    stockItemJPA.setLastUpdated(stockItemDTO.lastUpdated());
 
                     return stockItemJPARepository.save(stockItemJPA);
                 })

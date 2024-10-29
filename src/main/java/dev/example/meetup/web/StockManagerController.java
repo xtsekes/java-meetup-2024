@@ -63,8 +63,7 @@ public class StockManagerController {
                 stockItemPayload.description(),
                 stockItemPayload.quantity(),
                 null,
-                stockItemPayload.pricePerUnit(),
-                LocalDateTime.now()
+                stockItemPayload.pricePerUnit()
         );
     }
 
@@ -75,8 +74,7 @@ public class StockManagerController {
                 stockItem.description(),
                 stockItem.quantity(),
                 stockItem.unit(),
-                stockItem.pricePerUnit(),
-                stockItem.lastUpdated().toString()
+                stockItem.pricePerUnit()
 
         );
     }
@@ -97,8 +95,7 @@ public class StockManagerController {
                 stockItemPayload.description(),
                 stockItemPayload.quantity(),
                 stockItemPayload.unit(),
-                stockItemPayload.pricePerUnit(),
-                LocalDateTime.now()
+                stockItemPayload.pricePerUnit()
         );
     }
 }

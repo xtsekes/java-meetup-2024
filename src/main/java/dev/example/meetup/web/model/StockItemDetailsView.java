@@ -6,6 +6,5 @@ public record StockItemDetailsView (
         String description,
         Integer quantity,
         String unit,
-        Double pricePerUnit,
-        String lastUpdated
+        Double pricePerUnit
 ) {}

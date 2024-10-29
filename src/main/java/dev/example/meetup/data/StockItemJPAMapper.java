@@ -10,8 +10,7 @@ public class StockItemJPAMapper {
                 stockItemJPA.getDescription(),
                 stockItemJPA.getQuantity(),
                 stockItemJPA.getUnit(),
-                stockItemJPA.getPricePerUnit(),
-                stockItemJPA.getLastUpdated()
+                stockItemJPA.getPricePerUnit()
         );
     }
 
@@ -22,7 +21,6 @@ public class StockItemJPAMapper {
         stockItemJPA.setQuantity(stockItemDTO.quantity());
         stockItemJPA.setUnit(stockItemDTO.unit());
         stockItemJPA.setPricePerUnit(stockItemDTO.pricePerUnit());
-        stockItemJPA.setLastUpdated(stockItemDTO.lastUpdated());
 
         return stockItemJPA;
     }
