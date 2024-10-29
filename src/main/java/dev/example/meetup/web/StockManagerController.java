@@ -6,11 +6,11 @@ import dev.example.meetup.web.model.StockItemDetailsView;
 import dev.example.meetup.web.model.StockItemPayload;
 import dev.example.meetup.web.model.StockItemView;
 import dev.example.meetup.web.model.UpdateStockItemPayload;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,7 +31,7 @@ public class StockManagerController {
     }
 
     @PostMapping("/add-stock")
-    public ResponseEntity<Void> addStockItem(@RequestBody StockItemPayload stockItemPayload) {
+    public ResponseEntity<Void> addStockItem(@Valid @RequestBody StockItemPayload stockItemPayload) {
         stockManagerService.addStockItem(mapToStockItemDTO(stockItemPayload));
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -43,7 +43,7 @@ public class StockManagerController {
     }
 
     @PutMapping("/stock/{id}")
-    public ResponseEntity<Void> updateStockItem(@PathVariable Long id, @RequestBody UpdateStockItemPayload stockItemPayload) {
+    public ResponseEntity<Void> updateStockItem(@PathVariable Long id, @Valid @RequestBody UpdateStockItemPayload stockItemPayload) {
         stockManagerService.updateStockItem(id, mapUpdateStockItemPayloadToDTO(stockItemPayload));
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
